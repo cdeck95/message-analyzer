@@ -1,11 +1,15 @@
-timestamp,sender,receiver,text
-2023-04-10 10:00:00,John,Doe,Hey! How are you?
-2023-04-10 10:02:00,Doe,John,I'm good, thanks! How about you?
-2023-04-10 10:03:00,John,Doe,Doing great! Are you free this weekend?
-2023-04-10 10:04:00,Doe,John,Yes, I am. Any plans?
-2023-04-10 10:05:00,John,Doe,Let's go for a movie on Saturday.
-2023-04-10 10:06:00,Doe,John,That sounds great! What movie do you want to see?
-2023-04-10 10:07:00,John,Doe,How about "The New Adventure"?
-2023-04-10 10:08:00,Doe,John,Sure, I've been wanting to watch that!
-2023-04-10 10:09:00,John,Doe,Great, let's meet at 6 pm at the cinema.
-2023-04-10 10:10:00,Doe,John,Perfect! See you then!
+Chat Session,Message Date,Delivered Date,Read Date,Edited Date,Service,Type,Sender ID,Sender Name,Status,Replying to,Subject,Text,Attachment,Attachment type
+Sam Frost,2017-07-17 00:16:01,2017-07-17 00:16:04,,,iMessage,Outgoing,,,Delivered,,,"Hey 😊",,
+Sam Frost,2017-07-17 11:27:50,,2017-07-17 12:38:48,,iMessage,Incoming,+16099232623,Sam Frost,Read,,,Hey whats up 😄,,
+Sam Frost,2017-07-17 13:13:16,2017-07-17 13:13:22,,,iMessage,Outgoing,,,Delivered,,,"not much, wanna go to applebees? 🍽️",,
+Sam Frost,2017-07-17 13:19:26,,2017-07-17 13:20:53,,iMessage,Incoming,+16099232623,Sam Frost,Read,,,"I already ate, drinks? 🍹",,
+Sam Frost,2017-07-17 13:22:45,2017-07-17 13:22:46,,,iMessage,Outgoing,,,Delivered,,,"sure thing! 👍",,
+Sam Frost,2017-07-17 13:25:19,,2017-07-17 13:25:34,,iMessage,Incoming,+16099232623,Sam Frost,Read,,,9pm? 🕘 ,,
+Sam Frost,2017-07-17 13:28:56,2017-07-17 13:28:57,,,iMessage,Outgoing,,,Delivered,,,"see you then - whatcha doing before/ 🧐",,
+Sam Frost,2017-07-17 14:43:29,,2017-07-17 15:03:16,,iMessage,Incoming,+16099232623,Sam Frost,Read,,,"just chilling, wanna relax alone 😌",,
+Sam Frost,2017-07-17 15:03:37,2017-07-17 15:03:38,,,iMessage,Outgoing,,,Delivered,,,That's fair 😊,,
+Sam Frost,2017-07-31 07:07:58,2017-07-31 07:07:59,,,iMessage,Outgoing,,,Delivered,,,"we can talk more later 🙃",,
+Sam Frost,2017-07-31 19:18:03,,2017-07-31 19:18:18,,iMessage,Incoming,+16099232623,Sam Frost,Read,,,"g2g - class 📚",,
+Sam Frost,2017-07-31 19:20:30,2017-07-31 19:20:31,,,iMessage,Outgoing,,,Delivered,,,"Hope all is well! 🌟",,
+Sam Frost,2017-07-31 19:36:01,,2017-07-31 19:36:09,,iMessage,Incoming,+16099232623,Sam Frost,Read,,,Thanks you too 😊 ,,
+Sam Frost,2017-10-28 00:20:06,2017-10-28 00:20:08,,,iMessage,Outgoing,,,Delivered,,,Hey 😃,,
