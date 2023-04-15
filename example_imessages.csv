@@ -1,0 +1,11 @@
+timestamp,sender,receiver,text
+2023-04-10 10:00:00,John,Doe,Hey! How are you?
+2023-04-10 10:02:00,Doe,John,I'm good, thanks! How about you?
+2023-04-10 10:03:00,John,Doe,Doing great! Are you free this weekend?
+2023-04-10 10:04:00,Doe,John,Yes, I am. Any plans?
+2023-04-10 10:05:00,John,Doe,Let's go for a movie on Saturday.
+2023-04-10 10:06:00,Doe,John,That sounds great! What movie do you want to see?
+2023-04-10 10:07:00,John,Doe,How about "The New Adventure"?
+2023-04-10 10:08:00,Doe,John,Sure, I've been wanting to watch that!
+2023-04-10 10:09:00,John,Doe,Great, let's meet at 6 pm at the cinema.
+2023-04-10 10:10:00,Doe,John,Perfect! See you then!
