@@ -86,6 +86,7 @@ drunkResults = execute_query(drunkQuery)
 for row in drunkResults:
     group_chat_name = row[0]
     message_count = row[1]
+    #commit
     #group_chat_name_with_emojis = emoji.emojize(group_chat_name, language="en")
     print(f"Group Chat: {group_chat_name} || Messages exchanged: {message_count}")
 
