@@ -16,20 +16,22 @@ c1.execute("ATTACH './contacts.sqlite' AS contacts")
 # Select rows from both databases using a JOIN
 query = """
     SELECT
-        chat.chat_identifier,
-        count(chat.chat_identifier) AS message_count,
+        message.guid,
+        message.text,
+        datetime (message.date / 1000000000 + strftime ("%s", "2001-01-01"), "unixepoch", "localtime"),
         person.first AS first_name,
         person.last AS last_name
     FROM
         message
-        JOIN chat ON message.guid = chat.guid
-        LEFT JOIN ABMultiValue ON message.handle_id = ABMultiValue.record_id
-        LEFT JOIN ABPerson AS person ON ABMultiValue.value = person.ROWID
+        LEFT JOIN handle ON message.handle_id = handle.ROWID
+        LEFT JOIN ABMultiValue ON handle.id = ABMultiValue.record_id
+        LEFT JOIN ABPerson AS person ON message.guid = person.guid
     GROUP BY
-        chat.chat_identifier
+        message.ROWID
     ORDER BY
-        message_count DESC
-    LIMIT 25;
+        date DESC
+    LIMIT
+        25;
 """
 c1.execute(query)
 
