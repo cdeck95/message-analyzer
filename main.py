@@ -1,42 +1,92 @@
 import pandas as pd
 import emoji
 import io
+import sqlite3
 
-# Function to count emojis in a text
-def count_emojis(text):
-    return sum(char in emoji.EMOJI_DATA for char in text)
+def execute_query(query):
+    # Connect to the database file
+    conn = sqlite3.connect('messages.sqlite')
+    cursor = conn.cursor()
 
+    # Execute the query
+    cursor.execute(query)
+    results = cursor.fetchall()
 
-# Read the CSV file
-messages = pd.read_csv('./example_imessages.csv', parse_dates=['Message Date','Delivered Date','Read Date','Edited Date'])
+    # Close the database connection
+    conn.close()
 
-# Display the first 5 rows of the DataFrame
-print(messages.head())
+    # Return the results
+    return results
 
-# Perform any analysis, such as counting messages per sender
-sender_counts = messages['Sender Name'].value_counts()
-print(sender_counts)
+query = """
+    SELECT
+        chat.chat_identifier,
+        count(chat.chat_identifier) AS message_count
+    FROM
+        chat
+        JOIN chat_message_join ON chat. "ROWID" = chat_message_join.chat_id
+        JOIN message ON chat_message_join.message_id = message. "ROWID"
+    GROUP BY
+        chat.chat_identifier
+    ORDER BY
+        message_count DESC
+    LIMIT 25;
+"""
 
-# Iterate over each message and print the contents
-for index, message in messages.iterrows():
-    # Apply the count_emojis function to the "Text" column and create a new column "Emoji_Count"
-    messages['Emoji_Count'] = messages['Text'].apply(count_emojis)
-    # messageTxt = emoji.emojize(message['Text'], language="en")
-    messageTxt = message['Text']
-    type = message['Type']
-    senderName = message['Sender Name']
-    chatSession = message['Chat Session']
-    if type=='Outgoing':
-        to=chatSession
-        sender='Me'
-    else:
-        to='Me'
-        sender=chatSession
-    print(f"Timestamp: {message['Message Date']}")
-    print(f"Sender: {message['Sender Name']}")
-    print(f"Receiver: {to}")
-    print(f"Text: {messageTxt}")
-    print(f"Emoji count: {count_emojis(messageTxt)}")
-    print(f"Attachments: {message['Attachment']}")
-    print()  # Print an empty line for readability
+results = execute_query(query)
+
+# Handle the results
+for row in results:
+    phone_number = row[0]
+    message_count = row[1]
+    print(f"Phone number: {phone_number}, Messages exchanged: {message_count}")
+
+query2 = """
+    SELECT
+        chat.display_name,
+        count(chat.display_name) AS group_message_count
+    FROM
+        chat
+        JOIN chat_message_join ON chat. "ROWID" = chat_message_join.chat_id
+        JOIN message ON chat_message_join.message_id = message. "ROWID"
+    GROUP BY
+        chat.display_name
+    ORDER BY
+        group_message_count DESC
+    LIMIT 25;
+"""
+
+results2 = execute_query(query2)
+
+# Handle the results
+for row in results2:
+    group_chat_name = row[0]
+    message_count = row[1]
+    #group_chat_name_with_emojis = emoji.emojize(group_chat_name, language="en")
+    print(f"Group Chat: {group_chat_name} || Messages exchanged: {message_count}")
+
+drunkQuery = """
+    SELECT
+        chat.display_name,
+        count(chat.display_name) AS group_message_count
+    FROM
+        chat
+        JOIN chat_message_join ON chat. "ROWID" = chat_message_join.chat_id
+        JOIN message ON chat_message_join.message_id = message. "ROWID"
+    GROUP BY
+        chat.display_name
+    ORDER BY
+        group_message_count DESC
+    LIMIT 25;
+"""
+
+drunkResults = execute_query(drunkQuery)
+
+# Handle the results
+for row in drunkResults:
+    group_chat_name = row[0]
+    message_count = row[1]
+    #group_chat_name_with_emojis = emoji.emojize(group_chat_name, language="en")
+    print(f"Group Chat: {group_chat_name} || Messages exchanged: {message_count}")
+
 
